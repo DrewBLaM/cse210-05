@@ -44,6 +44,8 @@ namespace Unit05.Game.Scripting
         {
             Player player = (Player)cast.GetFirstActor("player");
             Score score = (Score)cast.GetFirstActor("score");
+            Player player_2 = (Player)cast.GetFirstActor("player_2");
+            Score score_2 = (Score)cast.GetFirstActor("score_2");
             Food food = (Food)cast.GetFirstActor("food");
             
             if (player.GetHead().GetPosition().Equals(food.GetPosition()))
@@ -51,6 +53,14 @@ namespace Unit05.Game.Scripting
                 int points = food.GetPoints();
                 player.GrowTail(points);
                 score.AddPoints(points);
+                food.Reset();
+            }
+
+            if (player_2.GetHead().GetPosition().Equals(food.GetPosition()))
+            {
+                int points = food.GetPoints();
+                player_2.GrowTail(points);
+                score_2.AddPoints(points);
                 food.Reset();
             }
         }
@@ -64,10 +74,21 @@ namespace Unit05.Game.Scripting
             Player player = (Player)cast.GetFirstActor("player");
             Actor head = player.GetHead();
             List<Actor> body = player.GetBody();
+            Player player_2 = (Player)cast.GetFirstActor("player_2");
+            Actor head_2 = player_2.GetHead();
+            List<Actor> body_2 = player_2.GetBody();
 
             foreach (Actor segment in body)
             {
                 if (segment.GetPosition().Equals(head.GetPosition()))
+                {
+                    isGameOver = true;
+                }
+            }
+
+            foreach (Actor segment in body_2)
+            {
+                if (segment.GetPosition().Equals(head_2.GetPosition()))
                 {
                     isGameOver = true;
                 }
@@ -80,6 +101,8 @@ namespace Unit05.Game.Scripting
             {
                 Player player = (Player)cast.GetFirstActor("player");
                 List<Actor> segments = player.GetSegments();
+                Player player_2 = (Player)cast.GetFirstActor("player_2");
+                List<Actor> segments_2 = player_2.GetSegments();
                 Food food = (Food)cast.GetFirstActor("food");
 
                 // create a "game over" message
@@ -94,6 +117,10 @@ namespace Unit05.Game.Scripting
 
                 // make everything white
                 foreach (Actor segment in segments)
+                {
+                    segment.SetColor(Constants.WHITE);
+                }
+                foreach (Actor segment in segments_2)
                 {
                     segment.SetColor(Constants.WHITE);
                 }
