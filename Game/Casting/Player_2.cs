@@ -72,6 +72,7 @@ namespace Unit05.Game.Casting
         /// <inheritdoc/>
         public override void MoveNext()
         {
+            GrowTail(1);
             foreach (Actor segment in segments)
             {
                 segment.MoveNext();
