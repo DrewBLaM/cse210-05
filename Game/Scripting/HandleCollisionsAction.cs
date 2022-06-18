@@ -47,7 +47,7 @@ namespace Unit05.Game.Scripting
             Player_2 player_2 = (Player_2)cast.GetFirstActor("player_2");
             Score score_2 = (Score)cast.GetFirstActor("score_2");
             Food food = (Food)cast.GetFirstActor("food");
-            
+           
             if (player.GetHead().GetPosition().Equals(food.GetPosition()))
             {
                 int points = food.GetPoints();
