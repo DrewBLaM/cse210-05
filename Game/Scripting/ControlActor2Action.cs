@@ -50,7 +50,7 @@ namespace Unit05.Game.Scripting
                 direction = new Point(0, Constants.CELL_SIZE);
             }
 
-            Player player_2 = (Player)cast.GetFirstActor("player_2");
+            Player_2 player_2 = (Player_2)cast.GetFirstActor("player_2");
             player_2.TurnHead(direction);
 
         }

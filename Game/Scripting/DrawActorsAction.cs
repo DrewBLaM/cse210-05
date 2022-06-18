@@ -26,7 +26,7 @@ namespace Unit05.Game.Scripting
         {
             Player player = (Player)cast.GetFirstActor("player");
             List<Actor> segments = player.GetSegments();
-            Player player_2 = (Player)cast.GetFirstActor("player_2");
+            Player_2 player_2 = (Player_2)cast.GetFirstActor("player_2");
             List<Actor> segments_2 = player_2.GetSegments();
             Actor score = cast.GetFirstActor("score");
             Actor score_2 = cast.GetFirstActor("score_2");

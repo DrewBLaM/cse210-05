@@ -44,7 +44,7 @@ namespace Unit05.Game.Scripting
         {
             Player player = (Player)cast.GetFirstActor("player");
             Score score = (Score)cast.GetFirstActor("score");
-            Player player_2 = (Player)cast.GetFirstActor("player_2");
+            Player_2 player_2 = (Player_2)cast.GetFirstActor("player_2");
             Score score_2 = (Score)cast.GetFirstActor("score_2");
             Food food = (Food)cast.GetFirstActor("food");
             
@@ -74,7 +74,7 @@ namespace Unit05.Game.Scripting
             Player player = (Player)cast.GetFirstActor("player");
             Actor head = player.GetHead();
             List<Actor> body = player.GetBody();
-            Player player_2 = (Player)cast.GetFirstActor("player_2");
+            Player_2 player_2 = (Player_2)cast.GetFirstActor("player_2");
             Actor head_2 = player_2.GetHead();
             List<Actor> body_2 = player_2.GetBody();
 
@@ -101,7 +101,7 @@ namespace Unit05.Game.Scripting
             {
                 Player player = (Player)cast.GetFirstActor("player");
                 List<Actor> segments = player.GetSegments();
-                Player player_2 = (Player)cast.GetFirstActor("player_2");
+                Player_2 player_2 = (Player_2)cast.GetFirstActor("player_2");
                 List<Actor> segments_2 = player_2.GetSegments();
                 Food food = (Food)cast.GetFirstActor("food");
 
@@ -120,6 +120,7 @@ namespace Unit05.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
+
                 foreach (Actor segment in segments_2)
                 {
                     segment.SetColor(Constants.WHITE);
