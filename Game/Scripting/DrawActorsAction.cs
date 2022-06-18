@@ -26,13 +26,18 @@ namespace Unit05.Game.Scripting
         {
             Player player = (Player)cast.GetFirstActor("player");
             List<Actor> segments = player.GetSegments();
+            Player player_2 = (Player)cast.GetFirstActor("player_2");
+            List<Actor> segments_2 = player_2.GetSegments();
             Actor score = cast.GetFirstActor("score");
+            Actor score_2 = cast.GetFirstActor("score_2");
             Actor food = cast.GetFirstActor("food");
             List<Actor> messages = cast.GetActors("messages");
             
             videoService.ClearBuffer();
             videoService.DrawActors(segments);
+            videoService.DrawActors(segments_2);
             videoService.DrawActor(score);
+            videoService.DrawActor(score_2);
             videoService.DrawActor(food);
             videoService.DrawActors(messages);
             videoService.FlushBuffer();
