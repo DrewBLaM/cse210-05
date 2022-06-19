@@ -101,8 +101,8 @@ namespace Unit05.Game.Casting
         /// </summary>
         private void PrepareBody()
         {
-            int x = Constants.MAX_X / 4;
-            int y = Constants.MAX_Y / 4;
+            int x = (Constants.MAX_X / 2) + (Constants.CELL_SIZE * 6);
+            int y = Constants.MAX_Y / 2;
 
             for (int i = 0; i < Constants.PLAYER_LENGTH; i++)
             {
