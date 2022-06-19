@@ -39,7 +39,7 @@ namespace Unit05.Game.Scripting
         /// <summary>
         /// Updates the score nd moves the food if the player collides with it.
         /// </summary>
-        /// <param name="cast">The cast of actors.</param>
+        // / <param name="cast">The cast of actors.</param>
         private void HandleFoodCollisions(Cast cast)
         {
             Player player = (Player)cast.GetFirstActor("player");

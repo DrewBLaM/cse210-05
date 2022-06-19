@@ -17,13 +17,23 @@ namespace Unit05
         /// <param name="args">The given arguments.</param>
         static void Main(string[] args)
         {
+            // Prepare the actors
+            Score score_1 = new Score();
+            score_1.SetPosition(new Point(0, 0));
+            score_1.SetTrackedPlayer("One");
+            score_1.AddPoints(0);
+            Score score_2 = new Score();
+            score_2.SetPosition(new Point(750, 0));
+            score_2.SetTrackedPlayer("Two");
+            score_2.AddPoints(0);
+
             // create the cast
             Cast cast = new Cast();
             cast.AddActor("food", new Food());
             cast.AddActor("player", new Player());
             cast.AddActor("player_2", new Player_2());
-            cast.AddActor("score", new Score());
-            cast.AddActor("score_2", new Score());
+            cast.AddActor("score", score_1);
+            cast.AddActor("score_2", score_2);
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();
