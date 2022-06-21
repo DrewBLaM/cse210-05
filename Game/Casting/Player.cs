@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unit05.Game.Scripting;
 
 namespace Unit05.Game.Casting
 {
@@ -11,6 +12,7 @@ namespace Unit05.Game.Casting
     public class Player : Actor
     {
         private List<Actor> segments = new List<Actor>();
+        private static HandleCollisionsAction HCA = new HandleCollisionsAction();
 
         /// <summary>
         /// Constructs a new instance of a Player.
@@ -64,7 +66,13 @@ namespace Unit05.Game.Casting
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
                 segment.SetText("#");
-                segment.SetColor(Constants.GREEN);
+                bool gameOver = HCA.getIsGameOver();
+                if( gameOver == false){
+                    segment.SetColor(Constants.GREEN);
+                }
+                else {
+                    segment.SetColor(Constants.WHITE);
+                }
                 segments.Add(segment);
             }
         }
@@ -72,6 +80,7 @@ namespace Unit05.Game.Casting
         /// <inheritdoc/>
         public override void MoveNext()
         {
+
             GrowTail(1);
             foreach (Actor segment in segments)
             {
