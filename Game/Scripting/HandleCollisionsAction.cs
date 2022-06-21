@@ -145,5 +145,10 @@ namespace Unit05.Game.Scripting
             }
         }
 
+        public bool getIsGameOver()
+        {
+            return this.isGameOver;
+        }
+
     }
 }
