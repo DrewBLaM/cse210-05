@@ -29,7 +29,6 @@ namespace Unit05
 
             // create the cast
             Cast cast = new Cast();
-            cast.AddActor("food", new Food());
             cast.AddActor("player", new Player());
             cast.AddActor("player_2", new Player_2());
             cast.AddActor("score", score_1);

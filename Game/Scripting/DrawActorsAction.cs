@@ -30,7 +30,6 @@ namespace Unit05.Game.Scripting
             List<Actor> segments_2 = player_2.GetSegments();
             Actor score = cast.GetFirstActor("score");
             Actor score_2 = cast.GetFirstActor("score_2");
-            ///Actor food = cast.GetFirstActor("food");
             List<Actor> messages = cast.GetActors("messages");
             
             videoService.ClearBuffer();
@@ -38,7 +37,6 @@ namespace Unit05.Game.Scripting
             videoService.DrawActors(segments_2);
             videoService.DrawActor(score);
             videoService.DrawActor(score_2);
-            ///videoService.DrawActor(food);
             videoService.DrawActors(messages);
             videoService.FlushBuffer();
         }

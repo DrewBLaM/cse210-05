@@ -30,38 +30,8 @@ namespace Unit05.Game.Scripting
         {
             if (isGameOver == false)
             {
-                HandleFoodCollisions(cast);
                 HandleSegmentCollisions(cast);
                 HandleGameOver(cast);
-            }
-        }
-
-        /// <summary>
-        /// Updates the score nd moves the food if the player collides with it.
-        /// </summary>
-        // / <param name="cast">The cast of actors.</param>
-        private void HandleFoodCollisions(Cast cast)
-        {
-            Player player = (Player)cast.GetFirstActor("player");
-            Score score = (Score)cast.GetFirstActor("score");
-            Player_2 player_2 = (Player_2)cast.GetFirstActor("player_2");
-            Score score_2 = (Score)cast.GetFirstActor("score_2");
-            Food food = (Food)cast.GetFirstActor("food");
-           
-            if (player.GetHead().GetPosition().Equals(food.GetPosition()))
-            {
-                int points = food.GetPoints();
-                player.GrowTail(points);
-                score.AddPoints(points);
-                food.Reset();
-            }
-
-            if (player_2.GetHead().GetPosition().Equals(food.GetPosition()))
-            {
-                int points = food.GetPoints();
-                player_2.GrowTail(points);
-                score_2.AddPoints(points);
-                food.Reset();
             }
         }
 
@@ -119,7 +89,6 @@ namespace Unit05.Game.Scripting
                 List<Actor> segments = player.GetSegments();
                 Player_2 player_2 = (Player_2)cast.GetFirstActor("player_2");
                 List<Actor> segments_2 = player_2.GetSegments();
-                Food food = (Food)cast.GetFirstActor("food");
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;
@@ -141,7 +110,6 @@ namespace Unit05.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
-                food.SetColor(Constants.WHITE);
             }
         }
 
