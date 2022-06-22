@@ -7,7 +7,7 @@ namespace Unit05.Game.Scripting
     /// <summary>
     /// <para>An input action that controls the player.</para>
     /// <para>
-    /// The responsibility of ControlActorsAction is to get the direction and move the player's head.
+    /// The responsibility of ControlActorsAction is to get the direction and move the player's bike.
     /// </para>
     /// </summary>
     public class ControlActor1Action : Action
@@ -51,7 +51,7 @@ namespace Unit05.Game.Scripting
             }
 
             Player player = (Player)cast.GetFirstActor("player");
-            player.TurnHead(direction);
+            player.TurnBike(direction);
 
         }
     }

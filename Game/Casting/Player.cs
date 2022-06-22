@@ -12,36 +12,35 @@ namespace Unit05.Game.Casting
     public class Player : Actor
     {
         private List<Actor> segments = new List<Actor>();
-        private static HandleCollisionsAction HCA = new HandleCollisionsAction();
 
         /// <summary>
         /// Constructs a new instance of a Player.
         /// </summary>
         public Player()
         {
-            PrepareBody();
+            PrepareBike();
         }
 
         /// <summary>
-        /// Gets the player's body segments.
+        /// Gets the player's trail segments.
         /// </summary>
-        /// <returns>The body segments in a List.</returns>
-        public List<Actor> GetBody()
+        /// <returns>The trail segments in a List.</returns>
+        public List<Actor> GetTrail()
         {
             return new List<Actor>(segments.Skip(1).ToArray());
         }
 
         /// <summary>
-        /// Gets the player's head segment.
+        /// Gets the player's bike segment.
         /// </summary>
-        /// <returns>The head segment as an instance of Actor.</returns>
-        public Actor GetHead()
+        /// <returns>The bike segment as an instance of Actor.</returns>
+        public Actor GetBike()
         {
             return segments[0];
         }
 
         /// <summary>
-        /// Gets the player's segments (including the head).
+        /// Gets the player's segments (including the bike).
         /// </summary>
         /// <returns>A list of player segments as instances of Actors.</returns>
         public List<Actor> GetSegments()
@@ -50,29 +49,23 @@ namespace Unit05.Game.Casting
         }
 
         /// <summary>
-        /// Grows the player's tail by the given number of segments.
+        /// Grows the player's trail by the given number of segments.
         /// </summary>
         /// <param name="numberOfSegments">The number of segments to grow.</param>
-        public void GrowTail(int numberOfSegments)
+        public void GrowTrail(int numberOfSegments)
         {
             for (int i = 0; i < numberOfSegments; i++)
             {
-                Actor tail = segments.Last<Actor>();
-                Point velocity = tail.GetVelocity();
+                Actor trail = segments.Last<Actor>();
+                Point velocity = trail.GetVelocity();
                 Point offset = velocity.Reverse();
-                Point position = tail.GetPosition().Add(offset);
+                Point position = trail.GetPosition().Add(offset);
 
                 Actor segment = new Actor();
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
                 segment.SetText("#");
-                bool gameOver = HCA.getIsGameOver();
-                if( gameOver == false){
-                    segment.SetColor(Constants.GREEN);
-                }
-                else {
-                    segment.SetColor(Constants.WHITE);
-                }
+                segment.SetColor(Constants.GREEN);
                 segments.Add(segment);
             }
         }
@@ -81,7 +74,7 @@ namespace Unit05.Game.Casting
         public override void MoveNext()
         {
 
-            GrowTail(1);
+            GrowTrail(1);
             foreach (Actor segment in segments)
             {
                 segment.MoveNext();
@@ -97,18 +90,18 @@ namespace Unit05.Game.Casting
         }
 
         /// <summary>
-        /// Turns the head of the player in the given direction.
+        /// Turns the bike of the player in the given direction.
         /// </summary>
         /// <param name="velocity">The given direction.</param>
-        public void TurnHead(Point direction)
+        public void TurnBike(Point direction)
         {
             segments[0].SetVelocity(direction);
         }
 
         /// <summary>
-        /// Prepares the player body for moving.
+        /// Prepares the player bike for moving.
         /// </summary>
-        private void PrepareBody()
+        private void PrepareBike()
         {
             int x = Constants.MAX_X / 4;
             int y = Constants.MAX_Y / 2;

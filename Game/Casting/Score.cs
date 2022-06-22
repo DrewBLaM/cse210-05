@@ -4,9 +4,9 @@ using System;
 namespace Unit05.Game.Casting
 {
     /// <summary>
-    /// <para>A tasty item that snakes like to eat.</para>
+    /// <para>A class that tracks player scores.</para>
     /// <para>
-    /// The responsibility of Food is to select a random position and points that it's worth.
+    /// The responsibility of Score is to assign an int value to a tracked player, store that value, and add points to the value
     /// </para>
     /// </summary>
     public class Score : Actor
@@ -14,7 +14,7 @@ namespace Unit05.Game.Casting
         private int points = 0;
         private string trackedPlayer = "";
         /// <summary>
-        /// Constructs a new instance of an Food.
+        /// Constructs a new instance of Score.
         /// </summary>
         public Score()
         {
@@ -30,6 +30,10 @@ namespace Unit05.Game.Casting
             this.points += points;
             SetText($"Player {trackedPlayer}: {this.points}");
         }
+       
+        /// <summary>
+        /// Assign an instance of score to a player
+        /// </summary>
         public void SetTrackedPlayer(string trackedPlayer)
         {
             this.trackedPlayer = trackedPlayer;

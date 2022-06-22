@@ -11,7 +11,7 @@ namespace Unit05.Game.Scripting
     /// <para>An update action that handles interactions between the actors.</para>
     /// <para>
     /// The responsibility of HandleCollisionsAction is to handle the situation when the player 
-    /// collides with the food, or the player collides with its segments, or the game is over.
+    /// collides with themselves, another player, the game is over.
     /// </para>
     /// </summary>
     public class HandleCollisionsAction : Action
@@ -31,6 +31,9 @@ namespace Unit05.Game.Scripting
             if (isGameOver == false)
             {
                 HandleSegmentCollisions(cast);
+            }
+            else
+            {
                 HandleGameOver(cast);
             }
         }
@@ -42,11 +45,11 @@ namespace Unit05.Game.Scripting
         private void HandleSegmentCollisions(Cast cast)
         {
             Player player = (Player)cast.GetFirstActor("player");
-            Actor head = player.GetHead();
-            List<Actor> body = player.GetBody();
+            Actor head = player.GetBike();
+            List<Actor> body = player.GetTrail();
             Player_2 player_2 = (Player_2)cast.GetFirstActor("player_2");
-            Actor head_2 = player_2.GetHead();
-            List<Actor> body_2 = player_2.GetBody();
+            Actor head_2 = player_2.GetBike();
+            List<Actor> body_2 = player_2.GetTrail();
 
             foreach (Actor segment in body)
             {
@@ -115,7 +118,7 @@ namespace Unit05.Game.Scripting
 
         public bool getIsGameOver()
         {
-            return this.isGameOver;
+            return isGameOver;
         }
 
     }

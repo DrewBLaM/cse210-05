@@ -51,7 +51,7 @@ namespace Unit05.Game.Scripting
             }
 
             Player_2 player_2 = (Player_2)cast.GetFirstActor("player_2");
-            player_2.TurnHead(direction);
+            player_2.TurnBike(direction);
 
         }
     }
