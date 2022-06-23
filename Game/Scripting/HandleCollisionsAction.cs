@@ -50,12 +50,17 @@ namespace Unit05.Game.Scripting
             Player_2 player_2 = (Player_2)cast.GetFirstActor("player_2");
             Actor head_2 = player_2.GetBike();
             List<Actor> body_2 = player_2.GetTrail();
+            
+            Score score_1 = (Score)cast.GetFirstActor("score");
+            Score score_2 = (Score)cast.GetFirstActor("score_2");
 
             foreach (Actor segment in body)
             {
                 if (segment.GetPosition().Equals(head.GetPosition()))
                 {
                     isGameOver = true;
+                    score_2.AddPoints(1);
+                    cast.AddActor("score_2", score_2);
                 }
             }
 
@@ -64,6 +69,8 @@ namespace Unit05.Game.Scripting
                 if (segment.GetPosition().Equals(head_2.GetPosition()))
                 {
                     isGameOver = true;
+                    score_1.AddPoints(1);
+                    cast.AddActor("score", score_1);
                 }
             }
 
@@ -72,6 +79,8 @@ namespace Unit05.Game.Scripting
                 if (segment.GetPosition().Equals(head.GetPosition()))
                 {
                     isGameOver = true;
+                    score_2.AddPoints(1);
+                    cast.AddActor("score_2", score_2);
                 }
             }
 
@@ -80,6 +89,8 @@ namespace Unit05.Game.Scripting
                 if (segment.GetPosition().Equals(head_2.GetPosition()))
                 {
                     isGameOver = true;
+                    score_1.AddPoints(1);
+                    cast.AddActor("score", score_1);
                 }
             }
         }
